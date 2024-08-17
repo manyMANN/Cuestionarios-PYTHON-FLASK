@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Home Alumno
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/index.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>  
+{% endblock header %}
+
+{% block content %}
+    <div class="blog">
+        
+        {% if g.user %}
+        <h1>Bienvenido Alumno</h1>
+        <p>{{ g.user['username'] }}</p> 
+
+            {% for todo in todos  %}
+                <h3>
+                    {{ todo['user_id'] }}
+                </h3>
+                <h3>
+                    {{ todo['preparatoria'] }}
+                </h3>
+                <h3>
+                    {{ todo['bloque'] }}
+                </h3>
+                <h3>
+                  Semestre : {{ todo['semestre'] }}
+                </h3>
+                {% if not loop.last %}
+                    <hr>
+                {% endif %}
+
+            {% endfor %}
+
+            <div class="menu">
+                <a class="action" href = "{{ url_for('blog.datospersonales') }}" > Autoevaluacion </a>
+                <a class="action" href = "{{ url_for('materias.materias') }}" > Evaluacion Docente </a>
+            </div>
+
+        {% endif %}
+        
+    </div>
+
+{% endblock content %}

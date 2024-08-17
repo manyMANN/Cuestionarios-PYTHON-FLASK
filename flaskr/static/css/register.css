@@ -1,0 +1,132 @@
+:root {
+    --color1: #00b5e2;
+    --color2: #003b5c;
+    --prussian-blue-50: #eef8ff;
+    --prussian-blue-100: #dcf2ff;
+    --prussian-blue-200: #b2e7ff;
+    --prussian-blue-300: #6dd4ff;
+    --prussian-blue-400: #20bfff;
+    --prussian-blue-500: #00a7ff;
+    --prussian-blue-600: #0085df;
+    --prussian-blue-700: #0069b4;
+    --prussian-blue-800: #005995;
+    --prussian-blue-900: #00497a;
+    --prussian-blue-950: #00365f;
+
+    --sunglow-50: #fffbeb;
+    --sunglow-100: #fff4c6;
+    --sunglow-200: #ffe988;
+    --sunglow-300: #fed74b;
+    --sunglow-400: #fec82f;
+    --sunglow-500: #f8a308;
+    --sunglow-600: #dc7b03;
+    --sunglow-700: #b65607;
+    --sunglow-800: #94420c;
+    --sunglow-900: #79370e;
+    --sunglow-950: #461b02;
+
+}
+
+@font-face {
+    font-family: 'Releway';
+    src: url('../fonts/Raleway-VariableFont_wght.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Releway';
+    background-color: #fff;
+}
+
+.content {
+    height: 76vh;
+    width: 100vw;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+
+.content .pantalla-formulario {
+    grid-row: 2/10;
+    grid-column: 2/10;
+    height: 60vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.queso {
+    grid-column: 1/6;
+    grid-row: 1/11;
+    background-image: linear-gradient(0deg,
+            rgba(0, 0, 0, .1),
+            rgba(0, 0, 0, .1)),
+        url(../img/BUAP-login.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 2vh;
+    opacity: .8;
+}
+
+.caja-formnulario {
+    grid-column: 6/11;
+    grid-row: 1/11;
+    display: grid;
+    background-color: var(--prussian-blue-950);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1fr);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.caja-formnulario h1 {
+    grid-row: 1/3;
+    grid-column: 1/2;
+    align-content: center;
+    text-align: center;
+    font-size: 3.5vh;
+    color: #fff
+}
+
+.caja-formnulario form {
+    width: 100%;
+    grid-row: 3/10;
+    grid-column: 1/2;
+    text-align: center;
+}
+
+.caja-formnulario form input {
+    grid-row: 9/10;
+    grid-column: 1/2;
+    width: 80%;
+    height: 3vh;
+    margin: 1vh;
+    font-size: 1.5vh;
+
+}
+
+.caja-formnulario form #buton {
+    grid-row: 9/11;
+    grid-column: 1/2;
+    width: 50%;
+    height: 4vh;
+    border: none;
+    cursor: pointer;
+    font-size: 2vh;
+    background-color: var(--color1);
+    border-radius: 2vh;
+    color: #fff;
+}
+
+.caja-formnulario form #buton:hover {
+    background-color: rgba(7, 190, 4, 1);
+    color: #fff;
+}

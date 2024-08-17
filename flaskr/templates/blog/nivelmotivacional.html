@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Autoevaluacion-Motivacón
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/formulario.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <div class="Caja-Principal">
+        <div class="Datos-Personales">
+            <form method="POST">
+                <fieldset>
+                    <legend><b>Nivel Motivacional</b></legend>
+    
+                    <section id="p1">
+                        <h3>1. Pongo mucho interés en lo que hacemos en clase. </h3>
+                        <label>
+                            <input type="radio" value="1" name="p1" id="p1" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p1" id="p1" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p2">
+                        <h3>2. Estoy “en las nubes” durante las clases </h3>
+                        <label>
+                            <input type="radio" value="0" name="p2" id="p2" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="p2" id="p2" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p3">
+                        <h3>3. Durante las clases, deseo con frecuencia que terminen.</h3>
+                        <label>
+                            <input type="radio" value="0" name="p3" id="p3" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="p3" id="p3" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p4">
+                        <h3>4. Pongo gran atención a lo que dice el profesor.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p4" id="p4" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p4" id="p4" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p5">
+                        <h3>5. Habitualmente tomo parte en las discusiones o actividades que se realizan en clase.</h3>
+                        <label>
+                            <input type="radio" value="0" name="p5" id="p5" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="p5" id="p5" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p6">
+                        <h3>6. Me distraigo en clase haciendo garabatos, hablando con mis compañeros o pasándome notas.</h3>
+                        <label>
+                            <input type="radio" value="0" name="p6" id="p6" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="p6" id="p6" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p7">
+                        <h3>7. En ocasiones, soy yo el que expongo a mis compañeros el trabajo realizado en clase.</h3>
+                        <label>
+                            <input type="radio" value="0" name="p7" id="p7s" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="p7" id="p7" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p8">
+                        <h3>8. En clase, suelo quedarme adormilado.</h3>
+                        <label>
+                            <input type="radio" value="0" name="p8" id="p8" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="1" name="p8" id="p8" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p9">
+                        <h3>9. En algunas asignaturas que me gustan especialmente, realizo trabajos extra por mi propia iniciativa.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p9" id="p9" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p9" id="p9" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p10">
+                        <h3>10. En clase me siento a gusto y bien.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p10" id="p10" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p10" id="p10" required/> Falso
+                        </label>
+                    </section>
+
+                    <button type="submit" href = "{{ url_for('blog.nivelautoestima') }}">Enviar</button>
+            
+                </fieldset>
+    
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

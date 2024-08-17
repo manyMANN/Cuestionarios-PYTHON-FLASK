@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Create
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/formulario.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+<header>
+    <a id="logo-lema" href="" class="logo">
+        <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+        <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+    </a>
+    <div class="navbar">
+        <nav class="menu">
+            <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+            <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+            <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+            <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+            {% if g.user %}
+                <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+            {% endif %}
+        </nav>
+    </div>
+    <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+</header>
+{% endblock header %}
+
+{% block content %}
+    <!-- Mostrar mensaje flash -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash-message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="Caja-Principal">
+        <div class="Datos-Personales">
+            <form method="POST">
+                <fieldset>
+                    <legend><b>Evaluacion Docente : {{ nombre }}  .</b></legend>
+    
+                    <section id="p1">
+                        <h1>Estrategias de enseñanza</h1>
+                        <p>1. El docente emplea diversas estrategias de enseñanza, tales como lecturas, material audiovisual y resolución de problemas, para facilitar el aprendizaje de los estudiantes.</p>
+                        <label>
+                            <input type="radio" value="1" name="p1" id="p1" required> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="3" name="p1" id="p1" required> No
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="p1" id="p1" required> En ocasiones
+                        </label>
+                    </section>
+    
+                    <section id="p2">
+                        <h1>Relacion con los alumnos</h1>
+                        <p>2. El docente promueve una interacción amable y respetuosa entre los miembros del grupo. </p>
+                        <label>
+                            <input type="radio" value="1" name="p2" id="p2" required> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="3" name="p2" id="p2" required> No
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="p2" id="p2" required> En ocasiones
+                        </label>
+                    </section>
+    
+                    <section id="p3">
+                        <h1>Uso de Materiales</h1>
+                        <p>3. El docente emplea medios, herramientas y plataformas digitales para enriquecer el proceso de aprendizaje. </p>
+                        <label>
+                            <input type="radio" value="1" name="p3" id="p3" required> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="3" name="p3" id="p3" required> No
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="p3" id="p3" required> En ocasiones
+                        </label>
+                    </section>
+    
+                    <section id="p4">
+                        <h1>Formación de Docenta</h1>
+                        <p>4. El docente posee una sólida formación académica que lo capacita de manera adecuada para impartir la asignatura.</p>
+                        <label>
+                            <input type="radio" value="1" name="p4" id="p4" required> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="3" name="p4" id="p4" required> No
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="p4" id="p4" required> En ocasiones
+                        </label>
+                    </section>
+            
+                    <section id="p5">
+                        <h3>5. Aquí puedes expresar un comentario abierto.(Todo lo que aquí exprese es confidencial y sera canalizado a las instancias correspondientes).  </h3>
+                        <input name="comentario" id="comentario" type="text"  placeholder="Ingresa tu comentaio..." required>
+                    </section>
+
+                    <!--- <button type="submit" href = "{{ url_for('materias.materias') }}">Enviar</button>-->
+                    <button type="submit">Enviar</button>
+            
+                </fieldset>
+    
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

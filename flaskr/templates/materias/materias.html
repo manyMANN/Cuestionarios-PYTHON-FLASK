@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Home Administrador
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/index.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/materias.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>  
+{% endblock header %}
+
+{% block content %}
+    <div class="blog">
+        
+        {% if g.user %}
+        <h1>Evaluación de Materias</h1>
+        <h3>{{ g.user['username'] }}</h3> 
+        <h3>{{ g.user['user_id'] }}</h3> 
+        <h3>{{ g.user['preparatoria'] }}</h3> 
+        <h3>Semestre: {{ g.user['semestre'] }}</h3> 
+
+        <div class="menu" id="menu2">
+            {% for todo in todos %}
+                <div class = "listasmaterias">
+                    <a href="{{ url_for('materias.evaluaciondocente', inscripcion_id=todo['inscripcion_id'], nombre=todo['nombre'], materia_id=todo['materias_id']) }}">
+                    <h1> {{todo['inscripcion_id']}} : {{ todo['nombre'] }} : {{ todo['materias_id']}} </h1>
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+    </div>
+ <br>
+{% endblock content %}

@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'Releway';
+    src: url('../fonts/Raleway-VariableFont_wght.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Releway';
+    background-color: #fff;
+}
+
+.content {
+    height: 76vh;
+    width: 100vw;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.content .blog {
+    grid-row: 3/9;
+    grid-column: 2/10;
+    height: 60vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    align-items: center;
+    text-align: center;
+
+}
+
+
+.blog .action {
+    padding: 0;
+    color: var(--prussian-blue-950);
+}
+
+.blog .menu {
+    grid-row: 3/10;
+    grid-column: 1/2;
+}
+
+.blog .menu a {
+    display: block;
+    padding: 1.5vh;
+    font-style: oblique;
+    color: blue;
+    text-decoration: none;
+}
+
+.blog .menu h1 {
+    padding: 5vh;
+}
+
+.blog .menu a:hover {
+    scale: 1.2;
+}
+
+.blog .menu2 {
+    grid-row: 3/10;
+    grid-column: 1/10;
+    text-align: center;
+}
+
+.blog .menu2 {
+    display: block;
+}
+
+.blog .menu2 form input {
+    margin: 3vh;
+    height: 3.5vh;
+}
+
+.blog .menu2 .excel {
+    display: flex;
+    align-items: center;
+}
+
+.blog .menu2 .formulario {
+    display: flex;
+    align-content: space-between;
+    height: 8vh;
+    align-items: center;
+}
+
+.blog .menu2 .formulario a {
+    color: black;
+    text-align: center;
+    align-content: space-between;
+
+}
+
+.blog .menu2 .formulario a:hover {
+
+    color: blue;
+    scale: 1.2;
+}

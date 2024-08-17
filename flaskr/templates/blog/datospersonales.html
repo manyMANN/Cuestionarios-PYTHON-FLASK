@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Autoevaluación-Datos Personales
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/formulario.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <div class="Caja-Principal">
+        <div class="Datos-Personales">
+            <form method="POST">
+                <fieldset>
+                    <legend><b>Datos Personales</b></legend>
+    
+                    <section id="p2">
+                        <h3>1. Sexo: </h3>
+                        <label>
+                            <input type="radio" value="1" name="sexo" id="sexo" required/> Mujer
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="sexo" id="sexo" required/> Hombre
+                        </label>
+                    </section>
+    
+                    <section id="p3">
+                        <h3>2. Edad: </h3>
+                        <label>
+                            <input type="radio" value="1" name="edad" id="edad" required/> 15
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="edad" id="edad" required/> 16
+                        </label>
+                        <label>
+                            <input type="radio" value="3" name="edad" id="edad" required/> 17
+                        </label>
+                        <label>
+                            <input type="radio" value="4" name="edad" id="edad" required/> 18
+                        </label>
+                    </section>
+    
+                    <section id="p4">
+                        <h3>3. Escuela de procedencia: </h3>
+                        <label>
+                            <input type="radio" value="1" name="escuelaprocedencia" id="escuelaprocedencia" required/> Publica
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="escuelaprocedencia" id="escuelaprocedencia" required/> Privada
+                        </label>
+                    </section>
+            
+                    <section id="p5">
+                        <h3>4. ¿Eres foráneo? </h3>
+                        <label>
+                            <input type="radio" value="1" name="foraneo" id="foraneo" required/> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="foraneo" id="foraneo" required/> No
+                        </label>
+                    </section>
+    
+                    <section id="p6">
+                        <h3>5. ¿Trabajas? </h3>
+                        <label>
+                            <input type="radio" value="1" name="trabajas" id="trabajas" required/> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="trabajas" id="trabajas" required/> No
+                        </label>
+                    </section>
+            
+                    <section id="p7">
+                        <h3>6. ¿Cuentas con alguna beca o apoyo institucional? </h3>
+                        <label>
+                            <input type="radio" value="1" name="becado" id="becado" required/> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="becado" id="becado" required/> No
+                        </label>
+                    </section>
+    
+                    <section id="p8">
+                        <h3>7. ¿Tienes alguna discapacidad? </h3>
+                        <label>
+                            <input type="radio" value="1" name="discapacidad" id="discapacidad" required/> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="discapacidad" id="discapacidad" required/> No
+                        </label>
+                    </section>
+
+                    <button type="submit" href = "{{ url_for('blog.nivelsocioeconomico') }}">Enviar</button>
+            
+                </fieldset>
+    
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

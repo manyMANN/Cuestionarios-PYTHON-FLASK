@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'Releway';
+    src: url('../fonts/Raleway-VariableFont_wght.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Releway';
+    background-color: #fff;
+}
+
+.content {
+    background-color: #fff;
+    display: grid;
+    border: none;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+.content .Caja-Principal {
+    grid-row: 1/11;
+    grid-column: 2/10;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+
+}
+
+.Caja-Principal .Datos-Personales {
+    grid-row: 1/11;
+    grid-column: 3/9;
+}
+
+.blog a {
+    color: var(--prussian-blue-950);
+}
+
+section {
+    border: 2px solid #00365f;
+    border-radius: 1vh;
+    margin: 2vh 0vh;
+    padding: 2vh;
+}
+
+
+label {
+    display: block;
+    padding: 1vh;
+    border-radius: 1vh;
+    cursor: pointer;
+}
+
+label:hover {
+    background: #10b6e3;
+}
+
+button {
+    width: 50vh;
+    display: block;
+    margin: auto;
+    padding: 1vh;
+    background: #00365f;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    color: white;
+}
+
+button:hover {
+    background-color: rgba(7, 190, 4, 1);
+    color: #fff;
+}
+
+fieldset {
+    padding: 10px;
+    border-radius: 10px;
+    border-color: #00365f;
+    border: solid 2px;
+}
+
+fieldset legend b {
+    font-size: 30px;
+    color: #00365f;
+}
+
+.Datos-Personales {
+    margin-top: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+#comentario {
+    width: 100%;
+    height: 10vh;
+    margin-top: 1vh;
+}
+
+#comentario::placeholder {
+    text-align: center;
+    line-height: normal;
+}

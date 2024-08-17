@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BUAP {% block title %}{% endblock title %}</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!--<link rel="stylesheet" href={{url_for('static', filename='base.css')}}>-->
+    {% block headcontent %}{% endblock headcontent %}
+</head>
+<body>
+    {% block header %}
+        
+    
+    {% endblock header %}
+    
+    <section class="content">
+        {% for message in get_flashed_messages() %}
+        <div class="flash"> {{ message }} </div>
+        {% endfor %}
+        
+        {% block content %}
+        
+        {% endblock content %}
+    </section>
+    {% block footer %}
+    <footer>
+        <div class="logo-img">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blue2.png')}}" alt="BUAP">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blue.png')}}" alt="BUAP">
+        </div>
+        <p class="dra">Dra. Carmen Ceron Garnica <br> carmen.ceron@correo.buap.mx</p>
+        <p class="ing">Ing. Eduardo Barriguete Palomino <br> eduardo.barriguete@alumno.buap.mx</p>
+    </footer>
+    {% endblock footer %}
+</body>
+</html>

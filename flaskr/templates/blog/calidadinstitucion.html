@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Autoevaluacion-Calidad Institución
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/formulario.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <div class="Caja-Principal">
+        <div class="Datos-Personales">
+            <form method="POST">
+                <fieldset>
+                    <legend><b>Calidad Institución</b></legend>
+
+                    <h3>De las siguientes cualidades, ¿cuáles consideras que cumple tu institución?</h3>
+    
+                    <section id="p1">
+                        <h1>1. Profesores altamente capacitados.</h1>
+                        <h3>Una buena preparatoria debe tener profesores capacitados y actualizados en sus áreas de enseñanza.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p1" id="p1" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p1" id="p1" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p2">
+                        <h1>2. Programa académico riguroso.</h1>
+                        <h3>El programa académico debe ser desafiante y riguroso para preparar a los estudiantes para la universidad y para la vida. Por ejemplo, formar alumnos solidarios, informados, ávidos de conocimiento y motivados para alcanzar sus metas.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p2" id="p2" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p2" id="p2" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p3">
+                        <h1>3. Instalaciones y recursos adecuados.</h1>
+                        <h3>La Preparatoria debe contar con instalaciones y recursos como laboratorio de ciencias, biblioteca, tecnología actualizada y espacios para deportes y actividades extraescolares.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p3" id="p3" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p3" id="p3" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p4">
+                        <h1>4. Programas de enriquecimiento académico.</h1>
+                        <h3>Durante la Preparatoria, los alumnos deben contar con programas de enriquecimiento académico, como clases avanzadas, intercambios escolares y formación de mentalidad internacional y entendimiento intercultural.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p4" id="p4" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p4" id="p4" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p5">
+                        <h1>5. Participación de la comunidad.</h1>
+                        <h3>Una buena preparatoria debe tener una fuerte participación de la comunidad, incluyendo padres, exalumnos y líderes empresariales y educativos.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p5" id="p5" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p5" id="p5" required/> Falso
+                        </label>
+                    </section>
+                    <section id="p6">
+                        <h1>6. Actualmente, ¿Cuál es tu promedio?</h1>
+                        <label>
+                            <input type="radio" value="1" name="p6" id="p6" required/> Sobresaliente(10)
+                        </label>
+                        <label>
+                            <input type="radio" value="2" name="p6" id="p6" required/> Satisfactorio(9-8)
+                        </label>
+                        <label>
+                            <input type="radio" value="3" name="p6" id="p6" required/> Suficiente(7-6)
+                        </label>
+                        <label>
+                            <input type="radio" value="4" name="p6" id="p6" required/> Reprobatorio(5)
+                        </label>
+                    </section>
+
+                    <button type="submit">Enviar</button>
+            
+                </fieldset>
+    
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Autoevaluacion-Hábitos de Estudio
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/formulario.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <div class="Caja-Principal">
+        <div class="Datos-Personales">
+            <form method="POST">
+                <fieldset>
+                    <legend><b>Hábitos de Estudio</b></legend>
+    
+                    <section id="p1">
+                        <h3>1. Tengo un buen lugar para estudiar, en el que me concentre y no me interrumpen ruidos o personas que llamen mi atención constantemente.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p1" id="p1" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p1" id="p1" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p2">
+                        <h3>2. Minimizo mis distracciones como el celular, las redes sociales, etc. </h3>
+                        <label>
+                            <input type="radio" value="1" name="p2" id="p2" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p2" id="p2" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p3">
+                        <h3>3. Tomo descansos entre periodos de 50 minutos para una mejor retención de conocimientos.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p3" id="p3" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p3" id="p3" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p4">
+                        <h3>4. Establezco objetivos antes de cada sesión de estudios. Estos objetivos pueden basarse en el tiempo o en el contenido.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p4" id="p4" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p4" id="p4" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p5">
+                        <h3>5. Tomo exámenes de práctica para poner a prueba el conocimiento que he adquirido.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p5" id="p5" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p5" id="p5" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p6">
+                        <h3>6. Trato de explicar con mis propias palabras un tema sin duda.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p6" id="p6" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p6" id="p6" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p7">
+                        <h3>7. Pido ayuda cuando no comprendo un tema.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p7" id="p7s" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p7" id="p7" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p8">
+                        <h3>8. Cuido mi cuerpo para un mejor desempeño haciendo ejercicio, comiendo bien, durmiendo bien y cuidando mi bienestar mental.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p8" id="p8" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p8" id="p8" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p9">
+                        <h3>9. Estudio constantemente y no solo cuando tengo pruebas o exámenes.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p9" id="p9" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p9" id="p9" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p10">
+                        <h3>10. Formo grupos de estudio para ayudarnos mutuamente y compartir ideas o métodos para un mejor desempeño.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p10" id="p10" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p10" id="p10" required/> Falso
+                        </label>
+                    </section>
+
+                    <button type="submit" href = "{{ url_for('blog.nivelestrategiasaprendizaje') }}">Enviar</button>
+            
+                </fieldset>
+    
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Autoevaluacion-Nivel Socioeconómico
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/formulario.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <div class="Caja-Principal">
+        <div class="Datos-Personales">
+            <form method="POST">
+                <fieldset>
+                    <legend><b>Nivel Socioeconómico</b></legend>
+    
+                    <section >
+                        <h3>1. ¿Último año de estudios que aprobó en la escuela el jefe del hogar? </h3>
+                        <label>
+                            <input type="radio" value="0" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> No estudió 
+                        </label>
+                        <label>
+                            <input type="radio" value="11" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> Primaria
+                        </label>
+                        <label>
+                            <input type="radio" value="18" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> Secundaria
+                        </label>
+                        <label>
+                            <input type="radio" value="23" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> Carrera Tecnica
+                        </label>
+                        <label>
+                            <input type="radio" value="27" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> Preparatoria Completa 
+                        </label>
+                        <label>
+                            <input type="radio" value="36" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> Licenciatura Incompleta 
+                        </label>
+                        <label>
+                            <input type="radio" value="59" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> Licenciatura Completa 
+                        </label>
+                        <label>
+                            <input type="radio" value="85" name="nivel_estudios_jg" id="nivel_estudios_jg" required/> Maestria o Doctorado 
+                        </label>
+                    </section>
+    
+                    <section id="p2">
+                        <h3>2. ¿Cuántos baños completos con regadera y W.C. (excusado) hay en esta vivienda? </h3>
+                        <label>
+                            <input type="radio" value="0" name="numero_banos" id="numero_banos" required/> 0 baños
+                        </label>
+                        <label>
+                            <input type="radio" value="24" name="numero_banos" id="numero_banos" required/> 1 baño 
+                        </label>
+                        <label>
+                            <input type="radio" value="47" name="numero_banos" id="numero_banos" required/> 2 o más baños 
+                        </label>
+                    </section>
+    
+                    <section id="p3">
+                        <h3>3. ¿Cuántos automóviles o camionetas tienen en su hogar, incluyendo camionetas cerradas o con cabina o caja? </h3>
+                        <label>
+                            <input type="radio" value="0" name="numero_autos" id="numero_autos" required/> 0 autos 
+                        </label>
+                        <label>
+                            <input type="radio" value="22" name="numero_autos" id="numero_autos" required/> 1 autos 
+                        </label>
+                        <label>
+                            <input type="radio" value="43" name="numero_autos" id="numero_autos" required/> 2 o más autos 
+                        </label>
+                    </section>
+    
+                    <section id="p4">
+                        <h3>4. Sin tomar en cuenta la conexión móvil que pudiera tener desde algún celular, ¿este hogar cuenta con internet? </h3>
+                        <label>
+                            <input type="radio" value="0" name="internet" id="internet" required/> Si
+                        </label>
+                        <label>
+                            <input type="radio" value="32" name="internet" id="internet" required/> No
+                        </label>
+                    </section>
+            
+                    <section id="p5">
+                        <h3>5. De todas las personas de 14 años o más que viven en el hogar, ¿cuántas trabajaron en el último mes? </h3>
+                        <label>
+                            <input type="radio" value="0" name="numero_pt" id="numero_pt"> 0 personas 
+                        </label>
+                        <label>
+                            <input type="radio" value="15" name="numero_pt" id="numero_pt"> 1 personas 
+                        </label>
+                        <label>
+                            <input type="radio" value="31" name="numero_pt" id="numero_pt"> 2 personas 
+                        </label>
+                        <label>
+                            <input type="radio" value="46" name="numero_pt" id="numero_pt"> 3 personas 
+                        </label>
+                        <label>
+                            <input type="radio" value="61" name="numero_pt" id="numero_pt"> 4 o mas personas 
+                        </label>
+                    </section>
+    
+                    <section id="p6">
+                        <h3>6. En esta vivienda, ¿cuántos cuartos se usan para dormir, sin contar pasillos ni baños?</h3>
+                        <label>
+                            <input type="radio" value="0" name="numero_cd" id="numero_cd"> 0 cuartos 
+                        </label>
+                        <label>
+                            <input type="radio" value="8" name="numero_cd" id="numero_cd"> 1 cuartos 
+                        </label>
+                        <label>
+                            <input type="radio" value="16" name="numero_cd" id="numero_cd"> 2 cuartos 
+                        </label>
+                        <label>
+                            <input type="radio" value="24" name="numero_cd" id="numero_cd"> 3 cuartos 
+                        </label>
+                        <label>
+                            <input type="radio" value="32" name="numero_cd" id="numero_cd"> 4 o mas cuartos 
+                        </label>
+                    </section>
+    
+                    <button type="submit" href = "{{ url_for('blog.nivelmotivacional') }}"> Enviar </button>
+            
+                </fieldset>
+    
+            </form>
+            
+        </div>
+    </div>
+
+{% endblock content %}

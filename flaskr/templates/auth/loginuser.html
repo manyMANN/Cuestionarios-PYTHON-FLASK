@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+    {% block title %}
+    {{super()}}
+    | Iniciar Sesión Alumno
+    {% endblock title %}
+    {% block headcontent %}
+        <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+        <link rel="stylesheet" href={{url_for('static', filename='/css/login.css')}}>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    {% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="#" class="nav-link">Inicio</a>
+                <a href="#" class="nav-link">Sobre Nosotros</a>
+                <a href="#" class="nav-link">Proyectos</a>
+                <a href="#" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>    
+{% endblock header %}
+
+{% block content %}
+    <div class="pantalla-formulario">
+        <div class="caja-formnulario">
+            <h1>Inciar Sesion</h1>
+            <form method="POST">
+                <input name="email" id="email" placeholder="Correo Electronico"  required/>
+                <input type="password" name="password" id="password" placeholder="Password"  required/>
+                <input id="buton" type="submit" value="Iniciar Sesión"/>
+            </form>
+            {% if g.user %}
+                <li><spam>{{ g.user["username"] }}</spam></li>
+                <li><a href = "{{ url_for('auth.logout') }}">Cerrar Sesión</a></li>
+            {% else %}
+               <li><a href = "{{ url_for('auth.registeradmin') }}">Registrarse</a></li> 
+            {% endif %}
+        </div>
+        <div class="queso">
+                
+        </div>
+    </div>
+{% endblock content %}

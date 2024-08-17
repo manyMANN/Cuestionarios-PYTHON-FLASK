@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{super()}}
+    | Autoevaluacion-Estrategias de Aprendizaje
+{% endblock title %}
+
+{% block headcontent %}
+    <link rel="stylesheet" href={{url_for('static', filename='/css/navbar.css')}}>
+    <link rel="stylesheet" href={{url_for('static', filename='/css/formulario.css')}}>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+{% endblock headcontent %}
+
+{% block header %}
+    <header>
+        <a id="logo-lema" href="" class="logo">
+            <img src="{{url_for('static', filename='/img/Logo-Buap-Blanco.png')}}" alt="BUAP">
+            <h2 class="Lema">BUAP <br>Clasificador de Comentarios</h2>
+        </a>
+        <div class="navbar">
+            <nav class="menu">
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Inicio</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Sobre Nosotros</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Proyectos</a>
+                <a href="{{ url_for('blog.index') }}" class="nav-link">Contacto</a>
+                {% if g.user %}
+                    <a class="action" href = "{{ url_for('auth.logout') }}" > Salir </a>
+                {% endif %}
+            </nav>
+        </div>
+        <a href=""  class="logo" id="hard"><i class='bx bx-menu'></i></a>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    <div class="Caja-Principal">
+        <div class="Datos-Personales">
+            <form method="POST">
+                <fieldset>
+                    <legend><b>Estrategias de Aprendizaje</b></legend>
+                    <h3>De las siguientes estrategias de aprendizaje, ¿cuáles pones en práctica en tu desarrollo institucional?</h3>
+    
+                    <section id="p1">
+                        <h3>1. Subrayar lo importante. </h3>
+                        <label>
+                            <input type="radio" value="1" name="p1" id="p1" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p1" id="p1" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p2">
+                        <h3>2. Realizar tus propios apuntes. </h3>
+                        <label>
+                            <input type="radio" value="1" name="p2" id="p2" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p2" id="p2" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p3">
+                        <h3>3. Realizar pruebas o Tests.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p3" id="p3" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p3" id="p3" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p4">
+                        <h3>4. Enseñar a otras personas.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p4" id="p4" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p4" id="p4" required/> Falso
+                        </label>
+                    </section>
+
+                    <section id="p5">
+                        <h3>5. Organizar el estudio.</h3>
+                        <label>
+                            <input type="radio" value="1" name="p5" id="p5" required/> Verdadero
+                        </label>
+                        <label>
+                            <input type="radio" value="0" name="p5" id="p5" required/> Falso
+                        </label>
+                    </section>
+
+                    <button type="submit" href = "{{ url_for('blog.calidadinstitucion') }}">Enviar</button>
+            
+                </fieldset>
+    
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}
